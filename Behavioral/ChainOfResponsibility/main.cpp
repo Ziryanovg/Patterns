@@ -55,6 +55,7 @@ public:
         m_complexity = complexity;
         m_description = description;
     };
+    virtual ~Handler1() = default;
 };
 
 class Handler2 : public Handler{
@@ -63,6 +64,7 @@ public:
         m_complexity = complexity;
         m_description = description;
     };
+    virtual ~Handler2() = default;
 };
 
 int main()
@@ -87,6 +89,12 @@ int main()
     cout << "Event3:" << endl;
     Event event3(5);
     hndl1->process(event3);
+
+    if(hndl1)
+        delete hndl1;
+
+    if(hndl1)
+        delete hndl2;
 
     return 0;
 }
